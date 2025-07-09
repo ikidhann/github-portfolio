@@ -1,17 +1,11 @@
-'use client';
+"use client";
 
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 
-
-import {
-  SunIcon,
-  MoonIcon,
-  Half2Icon,
-} from "@radix-ui/react-icons";
+import { SunIcon, MoonIcon, Half2Icon } from "@radix-ui/react-icons";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-
 
 // Theme options
 const themes = [
@@ -19,7 +13,6 @@ const themes = [
   { key: "dark", label: "Dark", icon: <MoonIcon /> },
   { key: "inherit", label: "System", icon: <Half2Icon /> },
 ];
-
 
 // Main component
 const ThemeSwitcher = () => {
@@ -43,7 +36,11 @@ const ThemeSwitcher = () => {
   // Get the active icon based on the current theme
   const getCurrentThemeIcon = () => {
     const activeTheme = themes.find(({ key }) => key === preferredTheme);
-    return activeTheme?.icon || <Half2Icon className="h-5 w-5 text-gray-700 dark:text-gray-300" />;
+    return (
+      activeTheme?.icon || (
+        <Half2Icon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+      )
+    );
   };
 
   return (
@@ -55,7 +52,7 @@ const ThemeSwitcher = () => {
             "inline-flex select-none justify-center rounded-md px-2.5 py-2 text-sm font-medium",
             "bg-white text-gray-900 hover:bg-gray-50 dark:bg-gray-700 dark:text-gray-100 hover:dark:bg-gray-600",
             "border border-gray-300 dark:border-transparent",
-            "focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+            "focus:outline-none focus-visible:ring focus-visible:ring-blue-600 focus-visible:ring-opacity-75"
           )}
           aria-label="Theme Selector"
         >
@@ -80,13 +77,17 @@ const ThemeSwitcher = () => {
                   "flex w-full cursor-pointer select-none items-center rounded-md px-2 py-2 text-xs outline-none",
                   "text-gray-500 focus:bg-gray-200 dark:text-gray-400 dark:focus:bg-gray-800"
                 )}
-                onClick={() => handleThemeChange(key as "inherit" | "light" | "dark")}
+                onClick={() =>
+                  handleThemeChange(key as "inherit" | "light" | "dark")
+                }
                 aria-label={`Switch to ${label} mode`}
               >
                 {React.cloneElement(icon, {
                   className: "w-5 h-5 mr-2 text-gray-700 dark:text-gray-300",
                 })}
-                <span className="flex-grow text-gray-700 dark:text-gray-300">{label}</span>
+                <span className="flex-grow text-gray-700 dark:text-gray-300">
+                  {label}
+                </span>
               </DropdownMenuPrimitive.Item>
             ))}
           </DropdownMenuPrimitive.Content>
