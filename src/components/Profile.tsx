@@ -42,7 +42,7 @@ export const Profile = () => {
                 width={150}
                 height={150}
                 quality={100}
-                src="/rizki.png"
+                src="/pp_rizki.jpg"
                 alt="Profile Picture"
                 className="rounded-full size-12 md:w-full h-auto object-cover border-2"
               />
@@ -59,14 +59,15 @@ export const Profile = () => {
           </div>
 
           <p className="mt-2 text-start text-sm text-muted-foreground">
-            I am a software engineer with a passion for building products that
-            help people live better lives.
+            Mobile Developer with expertise in Native (Android) and
+            cross-platform (Flutter) development.
           </p>
+
           <Button className="mt-4 w-full" asChild>
             {/* TODO: Add resume */}
             {/* TODO: Add link to schedule a call with you using Calendly or Cal */}
             <Link
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1VUInWYjqO-fJPyJkcnN0bitSOmnEtXWP/view?usp=sharing"
               target="_blank"
               className="font-semibold uppercase"
             >
